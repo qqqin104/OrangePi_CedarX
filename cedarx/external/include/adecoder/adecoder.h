@@ -388,6 +388,12 @@ int DecRequestPcmBuffer(AudioDecoder* pDecoder, char **pOutWritePtr);
 
 int DecUpdatePcmBuffer(AudioDecoder* pDecoder, int nPcmOutSize);
 
+/*
+申请可以用来播放的pcm 数据.
+Playback要 Audio解码的 pcm数据，如果有pcm 数据，返回pcm 首地址和长
+度，如果没有返回失败，为AudioDecRequstBuffer 所调用
+
+*/
 int PlybkRequestPcmBuffer(AudioDecoder* pDecoder, unsigned char **pOutReadPtr, int *psize);
 
 int PlybkUpdatePcmBuffer(AudioDecoder* pDecoder, int nPcmOutSize);

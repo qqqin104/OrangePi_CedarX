@@ -764,7 +764,7 @@ int AudioDecCompRequestPcmData(AudioDecComp*   p,
     //* so here we do not need to lock the decoderDestroyMutex.
     if(p->pDecoder != NULL)
     {
-        *pPts = PlybkRequestPcmPts(p->pDecoder);
+        *pPts = PlybkRequestPcmPts(p->pDecoder);//获取当前时间戳。获取pcm数据中要播放的起始时间，为视频同步用；
         memcpy(cfg,&(pStreamInfo.raw_data),sizeof(CdxPlaybkCfg));
         return  PlybkRequestPcmBuffer(p->pDecoder, ppData, (int*)pSize);
     }
